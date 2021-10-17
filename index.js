@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const helmet = require('helmet')
 
 
 const connection = require('./configs/db');
@@ -8,6 +9,7 @@ const port = process.env.PORT || 3100;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(helmet())
 
 app.use(cors());
 
